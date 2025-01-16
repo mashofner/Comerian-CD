@@ -114,6 +114,22 @@ function App() {
       ]
     },
     {
+      icon: <Instagram className="w-12 h-12 text-blue-400" />,
+      title: "Test Card",
+      description: "Automated outreach and engagement with potential leads through Instagram DMs.",
+      pricingOptions: [
+        {
+          title: "Build &\nManage",
+          setup: 500,
+          monthly: 250
+        },
+        {
+          title: "Build",
+          setup: 750
+        }
+      ]
+    },
+    {
       icon: <Twitter className="w-12 h-12 text-blue-400" />,
       title: "Cold X Outreach",
       description: "Automated outreach and engagement with potential leads through X platform.",
