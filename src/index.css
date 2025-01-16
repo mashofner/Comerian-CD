@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Fix for iOS white spaces while maintaining scrolling */
+html {
+  scroll-behavior: smooth;
+  background: #030712; /* Match the from-gray-950 color */
+}
+
+body {
+  background: #030712; /* Match the from-gray-950 color */
+  min-height: 100vh;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+/* Custom Scrollbar Styles */
+::-webkit-scrollbar {
+  width: 16px;
+  background-color: #111827;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3b82f6;
+  border-radius: 8px;
+  transition: background-color 0.2s;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2563eb;
+}
+
+::-webkit-scrollbar-track {
+  background: #1f2937;
+  border-radius: 8px;
+}
+
+/* Firefox Scrollbar Styles */
+* {
+  scrollbar-width: auto;
+  scrollbar-color: #3b82f6 #111827;
+}
+
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+  will-change: opacity, transform;
+}
+
+.fade-in-section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
