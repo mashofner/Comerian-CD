@@ -87,22 +87,6 @@ function App() {
       description: "Intelligent email automation for personalized and effective lead generation.",
       pricingOptions: [
         {
-          title: "Build &\nAdManage",
-          setup: 500,
-          monthly: 250
-        },
-        {
-          title: "Build",
-          setup: 750
-        }
-      ]
-    },
-    {
-      icon: <Instagram className="w-12 h-12 text-blue-400" />,
-      title: "Cold IG Outreach",
-      description: "Automated outreach and engagement with potential leads through Instagram DMs.",
-      pricingOptions: [
-        {
           title: "Build &\nManage",
           setup: 500,
           monthly: 250
@@ -115,7 +99,7 @@ function App() {
     },
     {
       icon: <Instagram className="w-12 h-12 text-blue-400" />,
-      title: "Test Card",
+      title: "Cold IG Outreach",
       description: "Automated outreach and engagement with potential leads through Instagram DMs.",
       pricingOptions: [
         {
