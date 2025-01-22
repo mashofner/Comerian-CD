@@ -1,9 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Bot, MessageSquare, Mail, Workflow, Linkedin, Twitter, Instagram, Globe, Settings, MessageCircle } from 'lucide-react';
 import NeuralNetwork from './components/NeuralNetwork';
 import FadeInSection from './components/FadeInSection';
 
-{/* All interfaces stay exactly the same */}
 interface PricingOption {
   title: string;
   setup?: number;
@@ -32,6 +31,18 @@ interface Prototype {
 }
 
 function App() {
+  const [isSubscribed, setIsSubscribed] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: ''
+  });
+
+  const handleSubscribe = (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubscribed(true);
+    setFormData({ name: '', email: '' });
+  };
+
   const services: Service[] = [
     {
       icon: <MessageSquare className="w-12 h-12 text-blue-400" />,
@@ -273,26 +284,73 @@ function App() {
 
         <section id="contact" className="container mx-auto px-6 py-12">
           <FadeInSection>
-            <div className="max-w-2xl mx-auto text-center">
-              <h2 className="text-3xl font-bold text-white mb-8">Ready to Get Started?</h2>
-              <p className="text-gray-400 mb-8">
-                Transform your business with AI automation. Contact us today for a free consultation.
-              </p>
-              <div className="flex justify-center space-x-4">
-                <a 
-                  href="mailto:mashofner@comeriandigital.net" 
-                  className="inline-flex items-center space-x-2 bg-blue-500 hover:bg-blue-600 px-8 py-3 rounded-full text-lg font-semibold text-white transition"
-                >
-                  <Mail className="w-5 h-5" />
-                  <span>Email Us</span>
-                </a>
-                <a 
-                  href="sms:+15017647572" 
-                  className="inline-flex items-center space-x-2 bg-blue-500 hover:bg-blue-600 px-8 py-3 rounded-full text-lg font-semibold text-white transition"
-                >
-                  <MessageSquare className="w-5 h-5" />
-                  <span>Text Us</span>
-                </a>
+            <div className="max-w-2xl mx-auto">
+              <h2 className="text-3xl font-bold text-center text-white mb-8">Contact</h2>
+              <div className="bg-gray-950/90 backdrop-blur-sm p-8 rounded-xl border border-gray-800 shadow-[0_0_15px_rgba(0,0,0,0.5)] hover:shadow-[0_0_25px_rgba(0,0,0,0.7)] transition duration-300">
+                <h3 className="text-2xl font-bold text-white mb-4 text-center">Ready to Get Started?</h3>
+                <p className="text-gray-400 mb-8 text-center">
+                  Let us transform your business with AI Automation. Reach out and we'll set up a consultation.
+                </p>
+                <div className="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-4 mb-12">
+                  <a 
+                    href="mailto:mashofner@comeriandigital.net" 
+                    className="inline-flex items-center justify-center space-x-2 bg-blue-500 hover:bg-blue-600 px-8 py-3 rounded-full text-lg font-semibold text-white transition"
+                  >
+                    <Mail className="w-5 h-5" />
+                    <span>Email Us</span>
+                  </a>
+                  <a 
+                    href="sms:+15017647572" 
+                    className="inline-flex items-center justify-center space-x-2 bg-blue-500 hover:bg-blue-600 px-8 py-3 rounded-full text-lg font-semibold text-white transition"
+                  >
+                    <MessageSquare className="w-5 h-5" />
+                    <span>Text Us</span>
+                  </a>
+                </div>
+
+                <div className="border-t border-gray-800 pt-8">
+                  {isSubscribed ? (
+                    <div className="text-center space-y-4">
+                      <h4 className="text-xl font-semibold text-blue-400">Thank you for subscribing!</h4>
+                      <p className="text-gray-400">
+                        We'll keep you updated with the latest AI insights and news.
+                      </p>
+                    </div>
+                  ) : (
+                    <>
+                      <h3 className="text-2xl font-bold text-white mb-4 text-center">Not Ready? No worries!</h3>
+                      <p className="text-gray-400 mb-8 text-center">
+                        Subscribe to our newsletter and we'll send you AI Updates, trainings, industry insights, and more...
+                      </p>
+                      <form onSubmit={handleSubscribe} className="flex flex-col space-y-4">
+                        <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
+                          <input
+                            type="text"
+                            placeholder="Your name"
+                            value={formData.name}
+                            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                            className="flex-1 px-8 py-3 rounded-full bg-transparent border border-gray-800 text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 transition-colors"
+                            required
+                          />
+                          <input
+                            type="email"
+                            placeholder="Your email"
+                            value={formData.email}
+                            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                            className="flex-1 px-8 py-3 rounded-full bg-transparent border border-gray-800 text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 transition-colors"
+                            required
+                          />
+                        </div>
+                        <button
+                          type="submit"
+                          className="inline-flex items-center justify-center space-x-2 bg-blue-500 hover:bg-blue-600 px-8 py-3 rounded-full text-lg font-semibold text-white transition"
+                        >
+                          <span>Subscribe</span>
+                        </button>
+                      </form>
+                    </>
+                  )}
+                </div>
               </div>
             </div>
           </FadeInSection>
