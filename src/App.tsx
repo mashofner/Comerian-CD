@@ -322,7 +322,7 @@ function App() {
                       <p className="text-gray-400 mb-8 text-center">
                         Subscribe to our newsletter and we'll send you AI Updates, trainings, industry insights, and more...
                       </p>
-                      <form onSubmit={handleSubscribe} className="flex flex-col space-y-4" name="Email-List-Sub" netlify>
+                      <form onSubmit={handleSubscribe} className="flex flex-col space-y-4">
                         <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
                           <input
                             type="text"
@@ -330,7 +330,6 @@ function App() {
                             value={formData.name}
                             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                             className="flex-1 px-8 py-3 rounded-full bg-transparent border border-gray-800 text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 transition-colors"
-                            name="name"
                             required
                           />
                           <input
@@ -339,7 +338,6 @@ function App() {
                             value={formData.email}
                             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                             className="flex-1 px-8 py-3 rounded-full bg-transparent border border-gray-800 text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 transition-colors"
-                            name="email"
                             required
                           />
                         </div>
