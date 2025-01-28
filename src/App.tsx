@@ -36,11 +36,53 @@ function App() {
     name: '',
     email: ''
   });
+  const [formError, setFormError] = useState<string | null>(null);
 
-  const handleSubscribe = (e: React.FormEvent) => {
+  const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubscribed(true);
-    setFormData({ name: '', email: '' });
+    setFormError(null);
+
+    const payload = {
+      fields: [
+        {
+          name: 'firstname',
+          value: formData.name
+        },
+        {
+          name: 'email',
+          value: formData.email
+        }
+      ],
+      context: {
+        pageUri: window.location.href,
+        pageName: document.title
+      }
+    };
+
+    try {
+      console.log('Submitting to HubSpot with payload:', payload);
+      
+      const response = await fetch(`https://api.hsforms.com/submissions/v3/integration/submit/${import.meta.env.VITE_HUBSPOT_PORTAL_ID}/${import.meta.env.VITE_HUBSPOT_FORM_GUID}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload)
+      });
+
+      const result = await response.json();
+      console.log('HubSpot response:', result);
+
+      if (!response.ok) {
+        throw new Error(result.message || 'Failed to submit form');
+      }
+
+      setIsSubscribed(true);
+      setFormData({ name: '', email: '' });
+    } catch (error) {
+      console.error('Failed to submit form to HubSpot:', error);
+      setFormError('Failed to subscribe. Please try again later.');
+    }
   };
 
   const services: Service[] = [
@@ -323,6 +365,11 @@ function App() {
                         Subscribe to our newsletter and we'll send you AI Updates, trainings, industry insights, and more...
                       </p>
                       <form onSubmit={handleSubscribe} className="flex flex-col space-y-4">
+                        {formError && (
+                          <div className="text-red-500 text-center mb-4">
+                            {formError}
+                          </div>
+                        )}
                         <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
                           <input
                             type="text"
