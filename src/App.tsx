@@ -42,6 +42,15 @@ function App() {
     e.preventDefault();
     setFormError(null);
 
+    const portalId = import.meta.env.VITE_HUBSPOT_PORTAL_ID;
+    const formGuid = import.meta.env.VITE_HUBSPOT_FORM_GUID;
+
+    if (!portalId || !formGuid) {
+      console.error('Missing HubSpot configuration');
+      setFormError('Configuration error. Please try again later.');
+      return;
+    }
+
     const payload = {
       fields: [
         {
@@ -60,9 +69,7 @@ function App() {
     };
 
     try {
-      console.log('Submitting to HubSpot with payload:', payload);
-      
-      const response = await fetch(`https://api.hsforms.com/submissions/v3/integration/submit/${import.meta.env.VITE_HUBSPOT_PORTAL_ID}/${import.meta.env.VITE_HUBSPOT_FORM_GUID}`, {
+      const response = await fetch(`https://api.hsforms.com/submissions/v3/integration/submit/${portalId}/${formGuid}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -71,7 +78,6 @@ function App() {
       });
 
       const result = await response.json();
-      console.log('HubSpot response:', result);
 
       if (!response.ok) {
         throw new Error(result.message || 'Failed to submit form');
