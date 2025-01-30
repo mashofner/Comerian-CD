@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { Bot, MessageSquare, Mail, Workflow, Linkedin, Twitter, Instagram, Globe, Settings, MessageCircle } from 'lucide-react';
+import { Bot, MessageSquare, Mail, Workflow, Linkedin, X, Instagram, Globe, Settings, MessageCircle } from 'lucide-react';
 import NeuralNetwork from './components/NeuralNetwork';
 import FadeInSection from './components/FadeInSection';
+import XLogo from './components/XLogo';
 import { Service, Prototype, ServiceCard, PrototypeCard } from './App';
 
 export function App() {
@@ -99,7 +100,7 @@ export function App() {
       ]
     },
     {
-      icon: <Twitter className="w-12 h-12 text-blue-400" />,
+      icon: <X className="w-12 h-12 text-blue-400" />,
       title: "X Lead Scraping",
       description: "Automated lead generation through intelligent X profile scraping and data extraction.",
       pricingOptions: [
@@ -147,7 +148,7 @@ export function App() {
       ]
     },
     {
-      icon: <Twitter className="w-12 h-12 text-blue-400" />,
+      icon: <X className="w-12 h-12 text-blue-400" />,
       title: "Cold X Outreach",
       description: "Automated outreach and engagement with potential leads through X platform.",
       pricingOptions: [
@@ -381,14 +382,24 @@ export function App() {
           </FadeInSection>
         </section>
 
-        <footer className="text-gray-400 py-12 bg-gray-900/50 backdrop-blur-sm">
+        <footer className="text-gray-400 py-12 bg-gray-900/50 backdrop-blur-sm relative">
+          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+            <a
+              href="https://twitter.com/ComerianAI"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-400 hover:text-blue-400 transition-colors"
+            >
+              <XLogo />
+            </a>
+          </div>
           <div className="container mx-auto px-6">
             <div className="flex flex-col md:flex-row justify-between items-center">
-              <div className="flex items-center space-x-2 mb-4 md:mb-0">
+              <div className="flex items-center space-x-2 mb-4 md:mb-0 ml-6">
                 <Workflow className="w-6 h-6 text-blue-400" />
                 <span className="text-white font-bold">Comerian</span>
               </div>
-              <div className="text-sm">
+              <div className="text-sm mt-4 md:mt-0">
                 © {new Date().getFullYear()} Comerian. All rights reserved.
               </div>
             </div>
