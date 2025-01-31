@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Bot, MessageSquare, Mail, Workflow, Linkedin, X, Instagram, Globe, Settings, MessageCircle } from 'lucide-react';
+import { Bot, MessageSquare, Mail, Workflow, Linkedin, Instagram, Globe, Settings, MessageCircle, Phone } from 'lucide-react';
 import NeuralNetwork from './components/NeuralNetwork';
 import FadeInSection from './components/FadeInSection';
 import XLogo from './components/XLogo';
@@ -12,6 +12,17 @@ export function App() {
     email: ''
   });
   const [formError, setFormError] = useState<string | null>(null);
+
+  const emailSubject = encodeURIComponent("Interested in AI Automation Services");
+  const emailBody = encodeURIComponent(
+    "Hi,\n\nI'm interested in learning more about your AI automation services. Could you please provide more information?\n\nBest regards"
+  );
+  const emailLink = `mailto:mashofner@comeriandigital.net?subject=${emailSubject}&body=${emailBody}`;
+
+  const smsBody = encodeURIComponent(
+    "Hi, I'm interested in learning more about your AI automation services."
+  );
+  const smsLink = `sms:+15017647572?body=${smsBody}`;
 
   const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -84,6 +95,22 @@ export function App() {
       ]
     },
     {
+      icon: <Phone className="w-12 h-12 text-blue-400" />,
+      title: "Phone Call Chatbot",
+      description: "AI-powered phone system that handles customer calls, inquiries, and automated responses.",
+      pricingOptions: [
+        {
+          title: "Build &\nManage",
+          setup: 1000,
+          monthly: 250
+        },
+        {
+          title: "Build",
+          setup: 1200
+        }
+      ]
+    },
+    {
       icon: <Linkedin className="w-12 h-12 text-blue-400" />,
       title: "LinkedIn Lead Scraping",
       description: "Automated lead generation through intelligent LinkedIn profile scraping and data extraction.",
@@ -100,7 +127,7 @@ export function App() {
       ]
     },
     {
-      icon: <X className="w-12 h-12 text-blue-400" />,
+      icon: <XLogo className="w-12 h-12 text-blue-400" />,
       title: "X Lead Scraping",
       description: "Automated lead generation through intelligent X profile scraping and data extraction.",
       pricingOptions: [
@@ -148,7 +175,7 @@ export function App() {
       ]
     },
     {
-      icon: <X className="w-12 h-12 text-blue-400" />,
+      icon: <XLogo className="w-12 h-12 text-blue-400" />,
       title: "Cold X Outreach",
       description: "Automated outreach and engagement with potential leads through X platform.",
       pricingOptions: [
@@ -316,14 +343,14 @@ export function App() {
                 </p>
                 <div className="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-4 mb-12">
                   <a
-                    href="mailto:mashofner@comeriandigital.net"
+                    href={emailLink}
                     className="inline-flex items-center justify-center space-x-2 bg-blue-500 hover:bg-blue-600 px-8 py-3 rounded-full text-lg font-semibold text-white transition"
                   >
                     <Mail className="w-5 h-5" />
                     <span>Email Us</span>
                   </a>
                   <a
-                    href="sms:+15017647572"
+                    href={smsLink}
                     className="inline-flex items-center justify-center space-x-2 bg-blue-500 hover:bg-blue-600 px-8 py-3 rounded-full text-lg font-semibold text-white transition"
                   >
                     <MessageSquare className="w-5 h-5" />
