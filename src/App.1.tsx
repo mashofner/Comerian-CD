@@ -81,164 +81,52 @@ export function App() {
     {
       icon: <MessageSquare className="w-12 h-12 text-blue-400" />,
       title: "Chatbot Creation",
-      description: "Custom AI chatbots designed to enhance customer service and automate support.",
-      pricingOptions: [
-        {
-          title: "Build &\nManage",
-          setup: 750,
-          monthly: 200
-        },
-        {
-          title: "Build",
-          setup: 950
-        }
-      ]
+      description: "Custom AI chatbots designed to enhance customer service and automate support."
     },
     {
       icon: <Phone className="w-12 h-12 text-blue-400" />,
       title: "Phone Call Chatbot",
-      description: "AI-powered phone system that handles customer calls, inquiries, and automated responses.",
-      pricingOptions: [
-        {
-          title: "Build &\nManage",
-          setup: 1000,
-          monthly: 250
-        },
-        {
-          title: "Build",
-          setup: 1200
-        }
-      ]
+      description: "AI-powered phone system that handles customer calls, inquiries, and automated responses."
     },
     {
       icon: <Linkedin className="w-12 h-12 text-blue-400" />,
       title: "LinkedIn Lead Scraping",
-      description: "Automated lead generation through intelligent LinkedIn profile scraping and data extraction.",
-      pricingOptions: [
-        {
-          title: "Build &\nManage",
-          setup: 500,
-          monthly: 250
-        },
-        {
-          title: "Build",
-          setup: 750
-        }
-      ]
+      description: "Automated lead generation through intelligent LinkedIn profile scraping and data extraction."
     },
     {
       icon: <XLogo className="w-12 h-12 text-blue-400" />,
       title: "X Lead Scraping",
-      description: "Automated lead generation through intelligent X profile scraping and data extraction.",
-      pricingOptions: [
-        {
-          title: "Build &\nManage",
-          setup: 100,
-          monthly: 100
-        },
-        {
-          title: "Build",
-          setup: 175
-        }
-      ]
+      description: "Automated lead generation through intelligent X profile scraping and data extraction."
     },
     {
       icon: <Mail className="w-12 h-12 text-blue-400" />,
       title: "Cold Email Outreach",
-      description: "Intelligent email automation for personalized and effective lead generation.",
-      pricingOptions: [
-        {
-          title: "Build &\nManage",
-          setup: 500,
-          monthly: 250
-        },
-        {
-          title: "Build",
-          setup: 750
-        }
-      ]
+      description: "Intelligent email automation for personalized and effective lead generation."
     },
     {
       icon: <Instagram className="w-12 h-12 text-blue-400" />,
       title: "Cold IG Outreach",
-      description: "Automated outreach and engagement with potential leads through Instagram DMs.",
-      pricingOptions: [
-        {
-          title: "Build &\nManage",
-          setup: 500,
-          monthly: 250
-        },
-        {
-          title: "Build",
-          setup: 750
-        }
-      ]
+      description: "Automated outreach and engagement with potential leads through Instagram DMs."
     },
     {
       icon: <XLogo className="w-12 h-12 text-blue-400" />,
       title: "Cold X Outreach",
-      description: "Automated outreach and engagement with potential leads through X platform.",
-      pricingOptions: [
-        {
-          title: "Build &\nManage",
-          setup: 100,
-          monthly: 100
-        },
-        {
-          title: "Build",
-          setup: 175
-        }
-      ]
+      description: "Automated outreach and engagement with potential leads through X platform."
     },
     {
       icon: <MessageCircle className="w-12 h-12 text-blue-400" />,
       title: "Auto Responder",
-      description: "Automated response system for messages across multiple platforms with intelligent routing and handling.",
-      pricingOptions: [
-        {
-          title: "Build &\nManage",
-          setup: 100,
-          monthly: 100
-        },
-        {
-          title: "Build",
-          setup: 150
-        }
-      ]
+      description: "Automated response system for messages across multiple platforms with intelligent routing and handling."
     },
     {
       icon: <Globe className="w-12 h-12 text-blue-400" />,
       title: "Web Development",
-      description: "Custom website development with modern technologies and AI-powered features.",
-      pricingOptions: [
-        {
-          title: "Custom\nSolution",
-          isCustom: true,
-          customDetails: [
-            "Complex integrations",
-            "Custom features",
-            "Scalable architecture",
-            "Enterprise solutions"
-          ]
-        }
-      ]
+      description: "Custom website development with modern technologies and AI-powered features."
     },
     {
       icon: <Settings className="w-12 h-12 text-blue-400" />,
       title: "Process Automation",
-      description: "Streamline workflows and operations with smart AI-powered automation solutions.",
-      pricingOptions: [
-        {
-          title: "Custom\nSolution",
-          isCustom: true,
-          customDetails: [
-            "Workflow analysis",
-            "Custom automation",
-            "System integration",
-            "Performance monitoring"
-          ]
-        }
-      ]
+      description: "Streamline workflows and operations with smart AI-powered automation solutions."
     }
   ];
 
@@ -410,19 +298,9 @@ export function App() {
         </section>
 
         <footer className="text-gray-400 py-12 bg-gray-900/50 backdrop-blur-sm relative">
-          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-            <a
-              href="https://twitter.com/ComerianAI"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-400 hover:text-blue-400 transition-colors"
-            >
-              <XLogo />
-            </a>
-          </div>
           <div className="container mx-auto px-6">
             <div className="flex flex-col md:flex-row justify-between items-center">
-              <div className="flex items-center space-x-2 mb-4 md:mb-0 ml-6">
+              <div className="flex items-center space-x-2 mb-4 md:mb-0">
                 <Workflow className="w-6 h-6 text-blue-400" />
                 <span className="text-white font-bold">Comerian</span>
               </div>

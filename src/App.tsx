@@ -15,7 +15,6 @@ export interface Service {
   icon: React.ReactNode;
   title: string;
   description: string;
-  pricingOptions?: PricingOption[];
 }
 
 export interface Prototype {
@@ -35,54 +34,7 @@ export function ServiceCard({ service, delay }: { service: Service; delay: numbe
       <div className="bg-gray-950/90 backdrop-blur-sm p-8 rounded-xl border border-gray-800 shadow-[0_0_15px_rgba(0,0,0,0.5)] hover:shadow-[0_0_25px_rgba(0,0,0,0.7)] transition duration-300 h-full flex flex-col">
         {service.icon}
         <h3 className="text-xl font-semibold text-white mt-4 mb-2">{service.title}</h3>
-        <p className="text-gray-400 mb-6">{service.description}</p>
-        
-        {service.pricingOptions && (
-          <div className="grid grid-cols-1 gap-4 mt-auto">
-            {service.pricingOptions.map((option, i) => (
-              <div key={i} className="bg-gray-900/50 p-4 rounded-lg flex flex-col h-full">
-                <div className="flex justify-between items-start mb-2">
-                  <h4 className="text-lg font-semibold text-white whitespace-pre-line">
-                    {option.title}
-                  </h4>
-                  {!option.isCustom ? (
-                    <div className="text-right">
-                      <div className="flex items-baseline gap-1">
-                        <span className="text-2xl font-bold text-blue-400">${option.setup}</span>
-                        <span className="text-sm text-gray-400">setup</span>
-                      </div>
-                    </div>
-                  ) : (
-                    <div className="text-right">
-                      <div className="flex flex-col items-end">
-                        <span className="text-xl font-bold text-blue-400">Custom</span>
-                        <span className="text-xl font-bold text-blue-400">Quote</span>
-                      </div>
-                    </div>
-                  )}
-                </div>
-                {option.description && (
-                  <p className="text-gray-400 text-sm mb-2">{option.description}</p>
-                )}
-                {option.monthly && !option.isCustom && (
-                  <div className="text-sm text-gray-400">
-                    +${option.monthly}/mo maintenance
-                  </div>
-                )}
-                {option.customDetails && (
-                  <ul className="mt-4 space-y-2">
-                    {option.customDetails.map((detail, index) => (
-                      <li key={index} className="text-gray-400 text-sm flex items-center">
-                        <div className="w-1.5 h-1.5 rounded-full bg-blue-400 mr-2"></div>
-                        {detail}
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </div>
-            ))}
-          </div>
-        )}
+        <p className="text-gray-400">{service.description}</p>
       </div>
     </FadeInSection>
   );
