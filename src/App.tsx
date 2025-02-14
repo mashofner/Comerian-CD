@@ -1,6 +1,5 @@
 import React from 'react';
 import FadeInSection from './components/FadeInSection';
-import { App } from './App.1';
 
 export interface Service {
   icon: React.ReactNode;
@@ -89,4 +88,4 @@ export function PrototypeCard({ prototype, delay }: { prototype: Prototype; dela
   );
 }
 
-export default App;
+export { default as MainApp } from './App.1';

@@ -5,9 +5,10 @@ import FadeInSection from './components/FadeInSection';
 import XLogo from './components/XLogo';
 import { Service, Prototype, ServiceCard, PrototypeCard } from './App';
 
-export function App() {
+function App() {
   const [isSubscribed, setIsSubscribed] = useState(false);
   const [showLeadGenServices, setShowLeadGenServices] = useState(false);
+  const [showOutreachServices, setShowOutreachServices] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: ''
@@ -109,18 +110,26 @@ export function App() {
     },
     {
       icon: <Mail className="w-12 h-12 text-blue-400" />,
-      title: "Cold Email Outreach",
-      description: "Intelligent email automation for personalized and effective lead generation."
-    },
-    {
-      icon: <Instagram className="w-12 h-12 text-blue-400" />,
-      title: "Cold IG Outreach",
-      description: "Automated outreach and engagement with potential leads through Instagram DMs."
-    },
-    {
-      icon: <XLogo className="w-12 h-12 text-blue-400" />,
-      title: "Cold X Outreach",
-      description: "Automated outreach and engagement with potential leads through X platform."
+      title: "Cold Outreach",
+      description: "Intelligent automation for personalized and effective outreach across multiple platforms.",
+      expandable: true,
+      subServices: [
+        {
+          icon: <Mail className="w-8 h-8 text-blue-400" />,
+          title: "Email Outreach",
+          description: "Automated email campaigns with personalized messaging and follow-ups."
+        },
+        {
+          icon: <Instagram className="w-8 h-8 text-blue-400" />,
+          title: "Instagram Outreach",
+          description: "Strategic outreach through Instagram DMs with automated engagement."
+        },
+        {
+          icon: <XLogo className="w-8 h-8 text-blue-400" />,
+          title: "X Platform Outreach",
+          description: "Automated messaging and engagement through X platform."
+        }
+      ]
     },
     {
       icon: <MessageCircle className="w-12 h-12 text-blue-400" />,
@@ -166,11 +175,16 @@ export function App() {
     }
   ];
 
-  // Calculate the row index of the Lead Generation card
-  const itemsPerRow = window.innerWidth >= 768 ? 3 : 1; // Adjust based on screen size
-  const leadGenIndex = services.findIndex(s => s.expandable);
-  const rowIndex = Math.floor(leadGenIndex / itemsPerRow);
-  const rowEndIndex = (rowIndex + 1) * itemsPerRow;
+  // Calculate the row indices for expandable cards
+  const itemsPerRow = window.innerWidth >= 768 ? 3 : 1;
+  const leadGenIndex = services.findIndex(s => s.title === "Lead Generation");
+  const outreachIndex = services.findIndex(s => s.title === "Cold Outreach");
+  
+  const leadGenRowIndex = Math.floor(leadGenIndex / itemsPerRow);
+  const outreachRowIndex = Math.floor(outreachIndex / itemsPerRow);
+  
+  const leadGenRowEndIndex = (leadGenRowIndex + 1) * itemsPerRow;
+  const outreachRowEndIndex = (outreachRowIndex + 1) * itemsPerRow;
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-950 via-gray-900 to-gray-800 relative">
@@ -222,7 +236,13 @@ export function App() {
                   <FadeInSection delay={index * 200}>
                     <div 
                       className="bg-gray-950/90 backdrop-blur-sm p-6 sm:p-8 rounded-xl border border-gray-800 shadow-[0_0_15px_rgba(0,0,0,0.5)] hover:shadow-[0_0_25px_rgba(0,0,0,0.7)] transition duration-300 h-full cursor-pointer relative group"
-                      onClick={() => setShowLeadGenServices(!showLeadGenServices)}
+                      onClick={() => {
+                        if (service.title === "Lead Generation") {
+                          setShowLeadGenServices(!showLeadGenServices);
+                        } else if (service.title === "Cold Outreach") {
+                          setShowOutreachServices(!showOutreachServices);
+                        }
+                      }}
                     >
                       <div className="flex items-center justify-between">
                         {service.icon}
@@ -231,7 +251,10 @@ export function App() {
                       <p className="text-sm sm:text-base text-gray-400 mb-4">{service.description}</p>
                       
                       <div className="text-sm text-blue-400">
-                        {showLeadGenServices ? "Click to collapse" : "Click to expand"}
+                        {(service.title === "Lead Generation" && showLeadGenServices) || 
+                         (service.title === "Cold Outreach" && showOutreachServices) 
+                          ? "Click to collapse" 
+                          : "Click to expand"}
                       </div>
                     </div>
                   </FadeInSection>
@@ -239,11 +262,30 @@ export function App() {
                   <ServiceCard service={service} delay={index * 200} />
                 )}
                 
-                {/* Insert dropdown after the last item in the Lead Generation card's row */}
-                {index === rowEndIndex - 1 && showLeadGenServices && (
+                {/* Insert Lead Generation dropdown */}
+                {index === leadGenRowEndIndex - 1 && showLeadGenServices && (
                   <div className="col-span-1 md:col-span-3 w-full mt-4 sm:mt-8 bg-gray-950/90 backdrop-blur-sm p-4 sm:p-8 rounded-xl border border-gray-800 shadow-[0_0_15px_rgba(0,0,0,0.5)] transition-all duration-300">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8">
-                      {services.find(s => s.expandable)?.subServices?.map((subService, idx) => (
+                      {services.find(s => s.title === "Lead Generation")?.subServices?.map((subService, idx) => (
+                        <div key={idx} className="flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6 p-4 sm:p-6 bg-gray-900/50 rounded-lg">
+                          <div className="bg-gray-900/50 p-3 sm:p-4 rounded-lg self-start">
+                            {subService.icon}
+                          </div>
+                          <div>
+                            <h4 className="text-lg sm:text-xl font-semibold text-white mb-2">{subService.title}</h4>
+                            <p className="text-sm sm:text-base text-gray-400">{subService.description}</p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Insert Outreach dropdown */}
+                {index === outreachRowEndIndex - 1 && showOutreachServices && (
+                  <div className="col-span-1 md:col-span-3 w-full mt-4 sm:mt-8 bg-gray-950/90 backdrop-blur-sm p-4 sm:p-8 rounded-xl border border-gray-800 shadow-[0_0_15px_rgba(0,0,0,0.5)] transition-all duration-300">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-8">
+                      {services.find(s => s.title === "Cold Outreach")?.subServices?.map((subService, idx) => (
                         <div key={idx} className="flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6 p-4 sm:p-6 bg-gray-900/50 rounded-lg">
                           <div className="bg-gray-900/50 p-3 sm:p-4 rounded-lg self-start">
                             {subService.icon}
@@ -369,3 +411,5 @@ export function App() {
     </div>
   );
 }
+
+export default App;
