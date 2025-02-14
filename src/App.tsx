@@ -6,6 +6,12 @@ export interface Service {
   icon: React.ReactNode;
   title: string;
   description: string;
+  expandable?: boolean;
+  subServices?: {
+    icon: React.ReactNode;
+    title: string;
+    description: string;
+  }[];
 }
 
 export interface Prototype {

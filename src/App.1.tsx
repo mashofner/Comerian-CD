@@ -7,6 +7,7 @@ import { Service, Prototype, ServiceCard, PrototypeCard } from './App';
 
 export function App() {
   const [isSubscribed, setIsSubscribed] = useState(false);
+  const [showLeadGenServices, setShowLeadGenServices] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: ''
@@ -89,14 +90,22 @@ export function App() {
       description: "AI-powered phone system that handles customer calls, inquiries, and automated responses."
     },
     {
-      icon: <Linkedin className="w-12 h-12 text-blue-400" />,
-      title: "LinkedIn Lead Scraping",
-      description: "Automated lead generation through intelligent LinkedIn profile scraping and data extraction."
-    },
-    {
-      icon: <XLogo className="w-12 h-12 text-blue-400" />,
-      title: "X Lead Scraping",
-      description: "Automated lead generation through intelligent X profile scraping and data extraction."
+      icon: <Globe className="w-12 h-12 text-blue-400" />,
+      title: "Lead Generation",
+      description: "Automated lead generation through intelligent profile scraping and data extraction.",
+      expandable: true,
+      subServices: [
+        {
+          icon: <Linkedin className="w-8 h-8 text-blue-400" />,
+          title: "LinkedIn Lead Generation",
+          description: "Targeted lead generation through LinkedIn profile analysis and engagement."
+        },
+        {
+          icon: <XLogo className="w-8 h-8 text-blue-400" />,
+          title: "X Lead Generation",
+          description: "Strategic lead generation through X platform data extraction and engagement."
+        }
+      ]
     },
     {
       icon: <Mail className="w-12 h-12 text-blue-400" />,
@@ -157,13 +166,19 @@ export function App() {
     }
   ];
 
+  // Calculate the row index of the Lead Generation card
+  const itemsPerRow = window.innerWidth >= 768 ? 3 : 1; // Adjust based on screen size
+  const leadGenIndex = services.findIndex(s => s.expandable);
+  const rowIndex = Math.floor(leadGenIndex / itemsPerRow);
+  const rowEndIndex = (rowIndex + 1) * itemsPerRow;
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-950 via-gray-900 to-gray-800 relative">
       <div className="fixed inset-0 z-0 bg-gradient-to-tr from-blue-500/5 via-transparent to-purple-500/5">
         <NeuralNetwork />
       </div>
       <div className="relative z-10">
-        <header className="container mx-auto px-6 text-white">
+        <header className="container mx-auto px-4 sm:px-6 text-white">
           <nav className="flex justify-between items-center py-6">
             <div className="flex items-center space-x-2">
               <Workflow className="w-8 h-8 text-blue-400" />
@@ -174,45 +189,85 @@ export function App() {
               <a href="#prototypes" className="hover:text-blue-400 transition">Prototypes</a>
               <a href="#contact" className="hover:text-blue-400 transition">Contact</a>
             </div>
-            <a href="#contact" className="bg-blue-500 hover:bg-blue-600 px-6 py-2 rounded-full transition">
+            <a href="#contact" className="bg-blue-500 hover:bg-blue-600 px-4 sm:px-6 py-2 rounded-full transition text-sm sm:text-base">
               Contact Us
             </a>
           </nav>
 
-          <div className="max-w-4xl mx-auto text-center py-12">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">
+          <div className="max-w-4xl mx-auto text-center py-8 sm:py-12">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">
               Transform Your Business with AI Automation
             </h1>
-            <p className="text-xl text-gray-300 mb-8">
+            <p className="text-lg sm:text-xl text-gray-300 mb-8 px-4">
               Leverage cutting-edge AI solutions to streamline operations, boost productivity, and drive growth.
             </p>
             <a
               href="#contact"
-              className="inline-block bg-blue-500 hover:bg-blue-600 text-white font-semibold px-8 py-3 rounded-full transition-colors duration-200"
+              className="inline-block bg-blue-500 hover:bg-blue-600 text-white font-semibold px-6 sm:px-8 py-3 rounded-full transition-colors duration-200 text-base sm:text-lg"
             >
               Contact Us
             </a>
           </div>
         </header>
 
-        <section id="services" className="container mx-auto px-6 py-8">
+        <section id="services" className="container mx-auto px-4 sm:px-6 py-8">
           <FadeInSection>
-            <h2 className="text-3xl font-bold text-center text-white mb-12">Our Services</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold text-center text-white mb-8 sm:mb-12">Our Services</h2>
           </FadeInSection>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-8 relative">
             {services.map((service, index) => (
-              <ServiceCard key={index} service={service} delay={index * 200} />
+              <React.Fragment key={index}>
+                {service.expandable ? (
+                  <FadeInSection delay={index * 200}>
+                    <div 
+                      className="bg-gray-950/90 backdrop-blur-sm p-6 sm:p-8 rounded-xl border border-gray-800 shadow-[0_0_15px_rgba(0,0,0,0.5)] hover:shadow-[0_0_25px_rgba(0,0,0,0.7)] transition duration-300 h-full cursor-pointer relative group"
+                      onClick={() => setShowLeadGenServices(!showLeadGenServices)}
+                    >
+                      <div className="flex items-center justify-between">
+                        {service.icon}
+                      </div>
+                      <h3 className="text-lg sm:text-xl font-semibold text-white mt-4 mb-2">{service.title}</h3>
+                      <p className="text-sm sm:text-base text-gray-400 mb-4">{service.description}</p>
+                      
+                      <div className="text-sm text-blue-400">
+                        {showLeadGenServices ? "Click to collapse" : "Click to expand"}
+                      </div>
+                    </div>
+                  </FadeInSection>
+                ) : (
+                  <ServiceCard service={service} delay={index * 200} />
+                )}
+                
+                {/* Insert dropdown after the last item in the Lead Generation card's row */}
+                {index === rowEndIndex - 1 && showLeadGenServices && (
+                  <div className="col-span-1 md:col-span-3 w-full mt-4 sm:mt-8 bg-gray-950/90 backdrop-blur-sm p-4 sm:p-8 rounded-xl border border-gray-800 shadow-[0_0_15px_rgba(0,0,0,0.5)] transition-all duration-300">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8">
+                      {services.find(s => s.expandable)?.subServices?.map((subService, idx) => (
+                        <div key={idx} className="flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6 p-4 sm:p-6 bg-gray-900/50 rounded-lg">
+                          <div className="bg-gray-900/50 p-3 sm:p-4 rounded-lg self-start">
+                            {subService.icon}
+                          </div>
+                          <div>
+                            <h4 className="text-lg sm:text-xl font-semibold text-white mb-2">{subService.title}</h4>
+                            <p className="text-sm sm:text-base text-gray-400">{subService.description}</p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </React.Fragment>
             ))}
           </div>
         </section>
 
-        <section id="prototypes" className="py-12">
-          <div className="container mx-auto px-6">
+        <section id="prototypes" className="py-8 sm:py-12">
+          <div className="container mx-auto px-4 sm:px-6">
             <FadeInSection>
-              <h2 className="text-3xl font-bold text-center text-white mb-12">Current Prototypes</h2>
+              <h2 className="text-2xl sm:text-3xl font-bold text-center text-white mb-8 sm:mb-12">Current Prototypes</h2>
             </FadeInSection>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8">
               {prototypes.map((prototype, index) => (
                 <PrototypeCard key={index} prototype={prototype} delay={index * 200} />
               ))}
@@ -220,44 +275,44 @@ export function App() {
           </div>
         </section>
 
-        <section id="contact" className="container mx-auto px-6 py-12">
+        <section id="contact" className="container mx-auto px-4 sm:px-6 py-8 sm:py-12">
           <FadeInSection>
             <div className="max-w-2xl mx-auto">
-              <h2 className="text-3xl font-bold text-center text-white mb-8">Contact</h2>
-              <div className="bg-gray-950/90 backdrop-blur-sm p-8 rounded-xl border border-gray-800 shadow-[0_0_15px_rgba(0,0,0,0.5)] hover:shadow-[0_0_25px_rgba(0,0,0,0.7)] transition duration-300">
-                <h3 className="text-2xl font-bold text-white mb-4 text-center">Ready to Get Started?</h3>
-                <p className="text-gray-400 mb-8 text-center">
+              <h2 className="text-2xl sm:text-3xl font-bold text-center text-white mb-6 sm:mb-8">Contact</h2>
+              <div className="bg-gray-950/90 backdrop-blur-sm p-6 sm:p-8 rounded-xl border border-gray-800 shadow-[0_0_15px_rgba(0,0,0,0.5)] hover:shadow-[0_0_25px_rgba(0,0,0,0.7)] transition duration-300">
+                <h3 className="text-xl sm:text-2xl font-bold text-white mb-4 text-center">Ready to Get Started?</h3>
+                <p className="text-sm sm:text-base text-gray-400 mb-6 sm:mb-8 text-center">
                   Let us transform your business with AI Automation. Reach out and we'll set up a consultation.
                 </p>
-                <div className="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-4 mb-12">
+                <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4 mb-8 sm:mb-12">
                   <a
                     href={emailLink}
-                    className="inline-flex items-center justify-center space-x-2 bg-blue-500 hover:bg-blue-600 px-8 py-3 rounded-full text-lg font-semibold text-white transition"
+                    className="inline-flex items-center justify-center space-x-2 bg-blue-500 hover:bg-blue-600 px-6 sm:px-8 py-3 rounded-full text-base sm:text-lg font-semibold text-white transition"
                   >
                     <Mail className="w-5 h-5" />
                     <span>Email Us</span>
                   </a>
                   <a
                     href={smsLink}
-                    className="inline-flex items-center justify-center space-x-2 bg-blue-500 hover:bg-blue-600 px-8 py-3 rounded-full text-lg font-semibold text-white transition"
+                    className="inline-flex items-center justify-center space-x-2 bg-blue-500 hover:bg-blue-600 px-6 sm:px-8 py-3 rounded-full text-base sm:text-lg font-semibold text-white transition"
                   >
                     <MessageSquare className="w-5 h-5" />
                     <span>Text Us</span>
                   </a>
                 </div>
 
-                <div className="border-t border-gray-800 pt-8">
+                <div className="border-t border-gray-800 pt-6 sm:pt-8">
                   {isSubscribed ? (
                     <div className="text-center space-y-4">
-                      <h4 className="text-xl font-semibold text-blue-400">Thank you for subscribing!</h4>
-                      <p className="text-gray-400">
+                      <h4 className="text-lg sm:text-xl font-semibold text-blue-400">Thank you for subscribing!</h4>
+                      <p className="text-sm sm:text-base text-gray-400">
                         We'll keep you updated with the latest AI insights and news.
                       </p>
                     </div>
                   ) : (
                     <>
-                      <h3 className="text-2xl font-bold text-white mb-4 text-center">Not Ready? No worries!</h3>
-                      <p className="text-gray-400 mb-8 text-center">
+                      <h3 className="text-xl sm:text-2xl font-bold text-white mb-4 text-center">Not Ready? No worries!</h3>
+                      <p className="text-sm sm:text-base text-gray-400 mb-6 sm:mb-8 text-center">
                         Subscribe to our newsletter and we'll send you AI Updates, trainings, industry insights, and more...
                       </p>
                       <form onSubmit={handleSubscribe} className="flex flex-col space-y-4">
@@ -266,25 +321,25 @@ export function App() {
                             {formError}
                           </div>
                         )}
-                        <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
+                        <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
                           <input
                             type="text"
                             placeholder="Your name"
                             value={formData.name}
                             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                            className="flex-1 px-8 py-3 rounded-full bg-transparent border border-gray-800 text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 transition-colors"
+                            className="flex-1 px-6 sm:px-8 py-3 rounded-full bg-transparent border border-gray-800 text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 transition-colors text-sm sm:text-base"
                             required />
                           <input
                             type="email"
                             placeholder="Your email"
                             value={formData.email}
                             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                            className="flex-1 px-8 py-3 rounded-full bg-transparent border border-gray-800 text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 transition-colors"
+                            className="flex-1 px-6 sm:px-8 py-3 rounded-full bg-transparent border border-gray-800 text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 transition-colors text-sm sm:text-base"
                             required />
                         </div>
                         <button
                           type="submit"
-                          className="inline-flex items-center justify-center space-x-2 bg-blue-500 hover:bg-blue-600 px-8 py-3 rounded-full text-lg font-semibold text-white transition"
+                          className="inline-flex items-center justify-center space-x-2 bg-blue-500 hover:bg-blue-600 px-6 sm:px-8 py-3 rounded-full text-base sm:text-lg font-semibold text-white transition"
                         >
                           <span>Subscribe</span>
                         </button>
@@ -297,14 +352,14 @@ export function App() {
           </FadeInSection>
         </section>
 
-        <footer className="text-gray-400 py-12 bg-gray-900/50 backdrop-blur-sm relative">
-          <div className="container mx-auto px-6">
-            <div className="flex flex-col md:flex-row justify-between items-center">
-              <div className="flex items-center space-x-2 mb-4 md:mb-0">
+        <footer className="text-gray-400 py-8 sm:py-12 bg-gray-900/50 backdrop-blur-sm relative">
+          <div className="container mx-auto px-4 sm:px-6">
+            <div className="flex flex-col sm:flex-row justify-between items-center">
+              <div className="flex items-center space-x-2 mb-4 sm:mb-0">
                 <Workflow className="w-6 h-6 text-blue-400" />
                 <span className="text-white font-bold">Comerian</span>
               </div>
-              <div className="text-sm mt-4 md:mt-0">
+              <div className="text-sm mt-4 sm:mt-0">
                 © {new Date().getFullYear()} Comerian. All rights reserved.
               </div>
             </div>
