@@ -2,15 +2,6 @@ import React from 'react';
 import FadeInSection from './components/FadeInSection';
 import { App } from './App.1';
 
-interface PricingOption {
-  title: string;
-  setup?: number;
-  monthly?: number;
-  description?: string;
-  isCustom?: boolean;
-  customDetails?: string[];
-}
-
 export interface Service {
   icon: React.ReactNode;
   title: string;
