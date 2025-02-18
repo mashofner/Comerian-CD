@@ -12,6 +12,14 @@ body {
   background: #030712; /* Match the from-gray-950 color */
   min-height: 100vh;
   overflow-x: hidden; /* Prevent horizontal scrolling */
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Custom Scrollbar Styles */
