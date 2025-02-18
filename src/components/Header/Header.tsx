@@ -18,7 +18,7 @@ export const Header: React.FC = () => {
 
       <div className="max-w-4xl mx-auto text-center py-8 sm:py-12">
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">
-          Transform Your Business with AI Automation
+          Outpace Your Competition with AI Automation
         </h1>
         <p className="text-lg sm:text-xl text-gray-300 mb-8 px-4">
           Leverage cutting-edge AI solutions to streamline operations, boost productivity, and drive growth.
