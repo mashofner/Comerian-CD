@@ -21,7 +21,7 @@ export const Header: React.FC = () => {
           Transform Your Business with AI Automation
         </h1>
         <p className="text-lg sm:text-xl text-gray-300 mb-8 px-4">
-          Leverage cutting-edge AI solutions to boost productivity, drive growth, and outpace your competition.
+          Weave AI into your business' DNA; boost productivity, drive growth. Leverage AI to build your dream business. Outpace your competition, sail into the AI frontier.
         </p>
         <a
           href="#contact"
