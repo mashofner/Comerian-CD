@@ -1,6 +1,4 @@
-import React from 'react';
-import { MessageSquare, Phone, Globe, Mail, Settings } from 'lucide-react';
-import { Linkedin, Instagram } from 'lucide-react';
+import { MessageSquare, Phone, Globe, Mail, Settings, Linkedin, Instagram } from 'lucide-react';
 import XLogo from '@/components/XLogo';
 import { Service } from '@/types';
 

@@ -1,4 +1,3 @@
-import React from 'react';
 import { Bot, MessageSquare } from 'lucide-react';
 import { Prototype } from '@/types';
 
