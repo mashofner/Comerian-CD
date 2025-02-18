@@ -22,3 +22,12 @@ export interface Prototype {
   prototypeLink?: string;
   hidePrototypeLink?: boolean;
 }
+
+export interface SubscriptionChatbot {
+  icon: ReactNode;
+  title: string;
+  description: string;
+  price: number;
+  status: 'available' | 'coming-soon';
+  features?: string[];
+}
