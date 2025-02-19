@@ -81,14 +81,12 @@ export const ServicesSection: React.FC = () => {
             {index === leadGenRowEndIndex - 1 && showLeadGenServices && (
               <SubServicesDropdown
                 service={services.find(s => s.title === "Lead Generation")}
-                columns={3}
               />
             )}
 
             {index === outreachRowEndIndex - 1 && showOutreachServices && (
               <SubServicesDropdown
                 service={services.find(s => s.title === "Automated Outreach")}
-                columns={3}
               />
             )}
           </React.Fragment>

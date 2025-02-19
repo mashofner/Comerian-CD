@@ -37,6 +37,7 @@ export const subscriptionChatbots: SubscriptionChatbot[] = [
     icon: <Bot className="w-10 h-10 text-gray-400" />,
     title: "More Industries Coming Soon",
     description: "We're developing chatbots for various industries. Contact us to suggest your industry!",
+    price: 0,
     status: 'coming-soon'
   }
 ];

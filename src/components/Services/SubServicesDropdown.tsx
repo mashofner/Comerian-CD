@@ -3,10 +3,9 @@ import { Service } from '@/types';
 
 interface SubServicesDropdownProps {
   service?: Service;
-  columns: number;
 }
 
-export const SubServicesDropdown: React.FC<SubServicesDropdownProps> = ({ service, columns }) => {
+export const SubServicesDropdown: React.FC<SubServicesDropdownProps> = ({ service }) => {
   if (!service?.subServices) return null;
 
   return (
