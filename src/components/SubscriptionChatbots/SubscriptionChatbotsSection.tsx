@@ -17,7 +17,10 @@ export const SubscriptionChatbotsSection: React.FC = () => {
               While most AI companies charge $10,000+ to build custom chatbots, we're changing things up. We've created specialized, pre-built chatbots for specific industries that deliver enterprise solutions at a fraction of the cost.
             </p>
             <p className="text-gray-300 text-lg leading-relaxed mt-4">
-              For just $50/month, you get access to a sophisticated AI chatbot that would typically cost $10,000 to build from scratch. Simply sign up, and we'll customize it with your business details and provide you with a simple code snippet to add to your website.
+              For just $50/month, you get access to a sophisticated AI chatbot that would typically cost $10,000 to build from scratch. This is the same price you'd pay to build it yourself using platforms like Voiceflow – but without spending countless hours learning the platform and designing the chatbot yourself.
+            </p>
+            <p className="text-gray-300 text-lg leading-relaxed mt-4">
+              Simply sign up, and we'll customize it with your business details and provide you with a simple code snippet to add to your website. Why spend time and money building your own when you can get a professional, industry-specific solution for the same monthly cost?
             </p>
             <div className="mt-6 flex items-center gap-4 text-gray-400">
               <div className="flex items-center gap-2">

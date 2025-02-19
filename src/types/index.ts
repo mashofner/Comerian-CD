@@ -30,4 +30,7 @@ export interface SubscriptionChatbot {
   price: number;
   status: 'available' | 'coming-soon';
   features?: string[];
+  demoLink?: string;
+  demoImage?: string;
+  demoCompanyLink?: string;
 }

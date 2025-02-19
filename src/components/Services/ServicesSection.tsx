@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { ServiceCard } from './ServiceCard';
 import { ExpandableServiceCard } from './ExpandableServiceCard';
 import { SubServicesDropdown } from './SubServicesDropdown';
+import { QuoteForm } from './QuoteForm';
 import FadeInSection from '../FadeInSection';
 import { services } from '@/data/services';
 
@@ -43,6 +44,14 @@ export const ServicesSection: React.FC = () => {
               <span>Enterprise Ready</span>
             </div>
           </div>
+          <div className="mt-8 flex justify-center">
+            <a
+              href="#quote-form"
+              className="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-12 py-3 rounded-full transition-colors duration-200 text-center text-lg"
+            >
+              Get a Quote
+            </a>
+          </div>
         </div>
       </FadeInSection>
 
@@ -72,7 +81,7 @@ export const ServicesSection: React.FC = () => {
             {index === leadGenRowEndIndex - 1 && showLeadGenServices && (
               <SubServicesDropdown
                 service={services.find(s => s.title === "Lead Generation")}
-                columns={2}
+                columns={3}
               />
             )}
 
@@ -84,6 +93,14 @@ export const ServicesSection: React.FC = () => {
             )}
           </React.Fragment>
         ))}
+      </div>
+
+      <div id="quote-form" className="max-w-4xl mx-auto mt-16 bg-gray-950/90 backdrop-blur-sm p-8 rounded-xl border border-gray-800 shadow-[0_0_15px_rgba(0,0,0,0.5)]">
+        <h3 className="text-xl sm:text-2xl font-bold text-white mb-4 text-center">Request a Quote</h3>
+        <p className="text-gray-300 text-center mb-8">
+          Fill out the form below and we'll reach out to discuss how to fuse AI into your business.
+        </p>
+        <QuoteForm />
       </div>
     </section>
   );

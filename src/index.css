@@ -5,13 +5,14 @@
 /* Fix for iOS white spaces while maintaining scrolling */
 html {
   scroll-behavior: smooth;
-  background: #030712; /* Match the from-gray-950 color */
+  scroll-padding-top: 2rem;
+  background: #030712;
 }
 
 body {
-  background: #030712; /* Match the from-gray-950 color */
+  background: #030712;
   min-height: 100vh;
-  overflow-x: hidden; /* Prevent horizontal scrolling */
+  overflow-x: hidden;
   margin: 0;
   padding: 0;
 }
@@ -59,4 +60,19 @@ body {
 .fade-in-section.is-visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Add scroll margin to the quote form */
+#quote-form {
+  scroll-margin-top: 6rem;
+}
+
+/* Style for required field asterisks */
+.required-field::placeholder {
+  color: #9CA3AF;
+}
+
+.required-field::placeholder::after {
+  content: " *";
+  color: #EF4444;
 }

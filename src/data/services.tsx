@@ -1,4 +1,4 @@
-import { MessageSquare, Phone, Globe, Mail, Settings, Linkedin, Instagram } from 'lucide-react';
+import { MessageSquare, Phone, Globe, Mail, Settings, Linkedin, Instagram, Bot } from 'lucide-react';
 import XLogo from '@/components/XLogo';
 import { Service } from '@/types';
 
@@ -28,6 +28,11 @@ export const services: Service[] = [
         icon: <XLogo className="w-8 h-8 text-blue-400" />,
         title: "X Lead Generation",
         description: "Identify and connect with potential customers on X through intelligent targeting and engagement."
+      },
+      {
+        icon: <Bot className="w-8 h-8 text-gray-400" />,
+        title: "Coming Soon",
+        description: "Our next innovative lead generation solution is in development. Stay tuned for updates!"
       }
     ]
   },
