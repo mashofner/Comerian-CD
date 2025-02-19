@@ -1,7 +1,6 @@
 import React from 'react';
 import { Workflow, LogIn } from 'lucide-react';
 import { Navigation } from './Navigation';
-import { loadStripe } from '@stripe/stripe-js';
 
 export const Header: React.FC = () => {
   const handlePortalLogin = async () => {
