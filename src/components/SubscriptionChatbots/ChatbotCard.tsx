@@ -11,6 +11,12 @@ export const ChatbotCard: React.FC<ChatbotCardProps> = ({ chatbot, delay }) => {
   const showPricing = chatbot.status === 'available' || chatbot.price === 25;
   const isPreOrder = chatbot.status === 'coming-soon' && chatbot.price === 25;
 
+  const handleSubscribe = () => {
+    if (chatbot.title === "Trash Can Cleaning Customer Support AI Chatbot") {
+      window.location.href = 'https://buy.stripe.com/6oE6osfs7bZIgzmaEE';
+    }
+  };
+
   return (
     <FadeInSection delay={delay}>
       <div className="bg-gray-950/90 backdrop-blur-sm rounded-xl border border-gray-800 shadow-[0_0_15px_rgba(0,0,0,0.5)] hover:shadow-[0_0_25px_rgba(0,0,0,0.7)] overflow-hidden h-full flex flex-col">
@@ -102,7 +108,10 @@ export const ChatbotCard: React.FC<ChatbotCardProps> = ({ chatbot, delay }) => {
                     {isPreOrder ? 'View Prototype' : 'Try Live Demo'}
                   </a>
                 )}
-                <button className="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200">
+                <button 
+                  onClick={handleSubscribe}
+                  className="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200"
+                >
                   {isPreOrder ? 'Pre-Order at Discount Price' : 'Subscribe Now'}
                 </button>
               </div>
