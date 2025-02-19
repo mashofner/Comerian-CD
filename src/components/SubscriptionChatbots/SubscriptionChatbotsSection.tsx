@@ -11,25 +11,25 @@ export const SubscriptionChatbotsSection: React.FC = () => {
           <h2 className="text-2xl sm:text-3xl font-bold text-center text-white mb-4">Subscription Chatbots</h2>
           <div className="max-w-4xl mx-auto mb-12 bg-gray-950/90 backdrop-blur-sm p-8 rounded-xl border border-gray-800 shadow-[0_0_15px_rgba(0,0,0,0.5)]">
             <h3 className="text-xl sm:text-2xl font-bold text-white mb-4 bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">
-              Enterprise-Grade AI, Small Business Price
+              Industry-Specific AI Chatbots, Ready to Deploy
             </h3>
             <p className="text-gray-300 text-lg leading-relaxed">
-              While most AI companies charge $10,000+ to build custom chatbots, we're changing things up. We've created specialized industry-specific chatbots that deliver enterprise solutions at a fraction of the cost.
+              We've revolutionized how businesses access advanced AI technology. Our subscription chatbots are specifically designed for your industry, delivering sophisticated customer support solutions worth $10,000+ at a fraction of the cost.
             </p>
             <p className="text-gray-300 text-lg leading-relaxed mt-4">
-              For just $50/month, you get access to a sophisticated $10,000 AI Chatbot.
+              For just $50/month, transform your customer service with a professional AI chatbot that understands your industry's unique needs and terminology.
             </p>
             <p className="text-gray-300 text-lg leading-relaxed mt-4">
-              Simply sign up, and we'll customize it with your business details and provide you with a simple code snippet to add to your website. Why spend time and money building your own when you can get a professional, industry-specific solution for a fraction of the cost?
+              Implementation is seamless - we'll customize your chatbot with your business details and provide a simple code snippet to add to your website. Start delivering exceptional 24/7 customer service today.
             </p>
             <div className="mt-6 flex items-center gap-4 text-gray-400">
               <div className="flex items-center gap-2">
                 <span className="w-1.5 h-1.5 bg-blue-400 rounded-full"></span>
-                <span>Pre-built & Ready</span>
+                <span>Industry-Specific</span>
               </div>
               <div className="flex items-center gap-2">
                 <span className="w-1.5 h-1.5 bg-blue-400 rounded-full"></span>
-                <span>Industry-Specific</span>
+                <span>Instant Setup</span>
               </div>
             </div>
           </div>

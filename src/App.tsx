@@ -1,6 +1,5 @@
 import { Header } from './components/Header';
 import { ServicesSection } from './components/Services';
-import { PrototypesSection } from './components/Prototypes';
 import { SubscriptionChatbotsSection } from './components/SubscriptionChatbots';
 import { ContactSection } from './components/Contact';
 import { Footer } from './components/Footer';
@@ -16,7 +15,6 @@ function App() {
         <Header />
         <SubscriptionChatbotsSection />
         <ServicesSection />
-        <PrototypesSection />
         <ContactSection />
         <Footer />
       </div>

@@ -8,7 +8,8 @@ interface ChatbotCardProps {
 }
 
 export const ChatbotCard: React.FC<ChatbotCardProps> = ({ chatbot, delay }) => {
-  const showPricing = chatbot.status === 'available' || chatbot.price === 40;
+  const showPricing = chatbot.status === 'available' || chatbot.price === 25;
+  const isPreOrder = chatbot.status === 'coming-soon' && chatbot.price === 25;
 
   return (
     <FadeInSection delay={delay}>
@@ -43,10 +44,10 @@ export const ChatbotCard: React.FC<ChatbotCardProps> = ({ chatbot, delay }) => {
                   Available Now
                 </span>
               </div>
-            ) : chatbot.price === 40 ? (
+            ) : isPreOrder ? (
               <div className="inline-flex items-center justify-center min-w-[120px]">
                 <span className="text-sm font-medium px-4 py-1.5 rounded-full bg-blue-500/10 text-blue-400 text-center">
-                  Pre-Sale
+                  Pre-Order Discount
                 </span>
               </div>
             ) : (
@@ -75,22 +76,34 @@ export const ChatbotCard: React.FC<ChatbotCardProps> = ({ chatbot, delay }) => {
           {showPricing && (
             <div className="mt-auto space-y-4">
               <div className="text-center">
-                <span className="text-3xl font-bold text-white">${chatbot.price}</span>
-                <span className="text-gray-400">/month</span>
+                {isPreOrder ? (
+                  <div className="space-y-1">
+                    <div>
+                      <span className="text-3xl font-bold text-white">${chatbot.price}</span>
+                      <span className="text-gray-400">/month</span>
+                    </div>
+                    <div className="text-sm text-blue-400">Pre-order price - locked in for life!</div>
+                  </div>
+                ) : (
+                  <div>
+                    <span className="text-3xl font-bold text-white">${chatbot.price}</span>
+                    <span className="text-gray-400">/month</span>
+                  </div>
+                )}
               </div>
               <div className="space-y-2">
                 {chatbot.demoLink && (
                   <a
-                    href={chatbot.title.includes("Pet") ? "#prototypes" : chatbot.demoLink}
-                    target={chatbot.title.includes("Pet") ? "_self" : "_blank"}
-                    rel={chatbot.title.includes("Pet") ? undefined : "noopener noreferrer"}
+                    href={chatbot.demoLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="block w-full bg-transparent border border-blue-500 text-blue-400 hover:bg-blue-500 hover:text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200 text-center"
                   >
-                    {chatbot.title.includes("Pet") ? "See Prototype" : "Try Live Demo"}
+                    {isPreOrder ? 'View Prototype' : 'Try Live Demo'}
                   </a>
                 )}
                 <button className="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200">
-                  {chatbot.status === 'available' ? 'Subscribe Now' : 'Pre-Order Now'}
+                  {isPreOrder ? 'Pre-Order at Discount Price' : 'Subscribe Now'}
                 </button>
               </div>
             </div>

@@ -12,7 +12,8 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "lucide-react": "^0.303.0",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "@stripe/stripe-js": "^2.2.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.43",

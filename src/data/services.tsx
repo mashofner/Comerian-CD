@@ -61,8 +61,8 @@ export const services: Service[] = [
   },
   {
     icon: <Globe className="w-12 h-12 text-blue-400" />,
-    title: "AI-Enhanced Websites",
-    description: "Want your website to work harder for your business? We build websites with integrated AI features that convert visitors into customers."
+    title: "Website Design and Development",
+    description: "Want your website to work harder for your business? We build modern, responsive websites that convert visitors into customers."
   },
   {
     icon: <Settings className="w-12 h-12 text-blue-400" />,

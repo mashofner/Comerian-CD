@@ -20,10 +20,12 @@ export const subscriptionChatbots: SubscriptionChatbot[] = [
   {
     icon: <MessageSquare className="w-10 h-10 text-blue-400" />,
     title: "Pet Crematorium and Funeral Home Customer Support AI Chatbot",
-    description: "Pre-launch special: Lock in lifetime pricing at $40/month! A specialized chatbot for pet crematoriums and memorial services.",
-    price: 40,
+    description: "Currently in development - Pre-order now and save $25/month for life! This specialized chatbot for pet crematoriums and memorial services will be available soon.",
+    price: 25,
     status: 'coming-soon',
     features: [
+      "Regular price will be $50/month",
+      "Lock in $25/month for life",
       "24/7 customer support",
       "Service information",
       "Pricing details",
