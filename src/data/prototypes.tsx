@@ -16,5 +16,11 @@ export const prototypes: Prototype[] = [
     title: "Coming Soon...",
     status: "In Development",
     description: "Our next innovative AI solution is in development. Stay tuned for updates!"
+  },
+  {
+    icon: <Bot className="w-10 h-10 text-gray-400" />,
+    title: "Coming Soon...",
+    status: "In Development",
+    description: "Another exciting AI solution is on the horizon. Watch this space for the next breakthrough in AI automation!"
   }
 ];

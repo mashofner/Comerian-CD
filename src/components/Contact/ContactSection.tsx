@@ -77,7 +77,7 @@ export const ContactSection: React.FC = () => {
           <div className="bg-gray-950/90 backdrop-blur-sm p-6 sm:p-8 rounded-xl border border-gray-800 shadow-[0_0_15px_rgba(0,0,0,0.5)] hover:shadow-[0_0_25px_rgba(0,0,0,0.7)] transition duration-300">
             <h3 className="text-xl sm:text-2xl font-bold text-white mb-4 text-center">Ready to Get Started?</h3>
             <p className="text-sm sm:text-base text-gray-400 mb-6 sm:mb-8 text-center">
-              Let us transform your business with AI Automation. Reach out and we'll set up a consultation.
+              Let us transform your business with AI Automation. Reach out and we'll answer any questions you have.
             </p>
             <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4 mb-8 sm:mb-12">
               <a

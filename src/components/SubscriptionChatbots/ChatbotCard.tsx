@@ -81,12 +81,12 @@ export const ChatbotCard: React.FC<ChatbotCardProps> = ({ chatbot, delay }) => {
               <div className="space-y-2">
                 {chatbot.demoLink && (
                   <a
-                    href={chatbot.title === "Pet Services Chatbot" ? "#prototypes" : chatbot.demoLink}
-                    target={chatbot.title === "Pet Services Chatbot" ? "_self" : "_blank"}
-                    rel={chatbot.title === "Pet Services Chatbot" ? undefined : "noopener noreferrer"}
+                    href={chatbot.title.includes("Pet") ? "#prototypes" : chatbot.demoLink}
+                    target={chatbot.title.includes("Pet") ? "_self" : "_blank"}
+                    rel={chatbot.title.includes("Pet") ? undefined : "noopener noreferrer"}
                     className="block w-full bg-transparent border border-blue-500 text-blue-400 hover:bg-blue-500 hover:text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200 text-center"
                   >
-                    {chatbot.title === "Pet Services Chatbot" ? "Check Out Prototype" : "Try Live Demo"}
+                    {chatbot.title.includes("Pet") ? "See Prototype" : "Try Live Demo"}
                   </a>
                 )}
                 <button className="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200">
