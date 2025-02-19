@@ -14,7 +14,7 @@ export const SubscriptionChatbotsSection: React.FC = () => {
               Enterprise-Grade AI, Small Business Price
             </h3>
             <p className="text-gray-300 text-lg leading-relaxed">
-              While most AI companies charge $10,000+ to build custom chatbots, we're changing things up. We've created specialized, pre-built chatbots for specific industries that deliver enterprise solutions at a fraction of the cost.
+              While most AI companies charge $10,000+ to build custom chatbots, we're changing things up. We've created specialized industry-specific chatbots that deliver enterprise solutions at a fraction of the cost.
             </p>
             <p className="text-gray-300 text-lg leading-relaxed mt-4">
               For just $50/month, you get access to a sophisticated $10,000 AI Chatbot.
