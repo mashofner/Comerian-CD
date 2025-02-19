@@ -3,13 +3,8 @@ import { Workflow, LogIn } from 'lucide-react';
 import { Navigation } from './Navigation';
 
 export const Header: React.FC = () => {
-  const handlePortalLogin = async () => {
-    try {
-      // Redirect to the Stripe customer portal
-      window.location.href = 'https://billing.stripe.com/p/login/test_8wMcNTeJQ3Yl3GE288';
-    } catch (error) {
-      console.error('Error redirecting to customer portal:', error);
-    }
+  const handlePortalLogin = () => {
+    window.location.href = 'https://billing.stripe.com/p/login/00gcOS2XJciJcFicMM';
   };
 
   return (
