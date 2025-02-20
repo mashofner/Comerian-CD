@@ -1,4 +1,4 @@
-import { MessageSquare, Phone, Globe, Mail, Settings, Linkedin, Instagram, Bot } from 'lucide-react';
+import { MessageSquare, Phone, Globe, Mail, Settings, Linkedin, Instagram, Bot, UserRoundSearch } from 'lucide-react';
 import XLogo from '@/components/XLogo';
 import { Service } from '@/types';
 
@@ -14,7 +14,7 @@ export const services: Service[] = [
     description: "Missing calls after hours? Our AI phone system handles customer calls 24/7, ensuring you never miss an opportunity and reducing the load on your staff."
   },
   {
-    icon: <Globe className="w-12 h-12 text-blue-400" />,
+    icon: <UserRoundSearch className="w-12 h-12 text-blue-400" />,
     title: "Lead Generation",
     description: "Struggling to find quality leads? Our AI-powered system identifies and engages with potential customers across platforms, delivering a steady stream of qualified leads.",
     expandable: true,
@@ -35,6 +35,16 @@ export const services: Service[] = [
         description: "Our next innovative lead generation solution is in development. Stay tuned for updates!"
       }
     ]
+  },
+  {
+    icon: <Globe className="w-12 h-12 text-blue-400" />,
+    title: "Website Design and Development",
+    description: "Want your website to work harder for your business? We build modern, responsive websites that convert visitors into customers."
+  },
+  {
+    icon: <Settings className="w-12 h-12 text-blue-400" />,
+    title: "Workflow Automation",
+    description: "Buried in repetitive tasks? Our AI automation solutions handle your routine work, freeing your team to focus on what matters most."
   },
   {
     icon: <Mail className="w-12 h-12 text-blue-400" />,
@@ -58,15 +68,5 @@ export const services: Service[] = [
         description: "Engage with potential customers on X through targeted, automated messaging that feels personal."
       }
     ]
-  },
-  {
-    icon: <Globe className="w-12 h-12 text-blue-400" />,
-    title: "Website Design and Development",
-    description: "Want your website to work harder for your business? We build modern, responsive websites that convert visitors into customers."
-  },
-  {
-    icon: <Settings className="w-12 h-12 text-blue-400" />,
-    title: "Workflow Automation",
-    description: "Buried in repetitive tasks? Our AI automation solutions handle your routine work, freeing your team to focus on what matters most."
   }
 ];

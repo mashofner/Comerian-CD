@@ -27,7 +27,7 @@ export const Header: React.FC = () => {
           </button>
           <a
             href="#contact"
-            className="bg-blue-500 hover:bg-blue-600 px-4 sm:px-6 py-2 rounded-full transition text-sm sm:text-base"
+            className="bg-blue-500 hover:bg-blue-600 px-6 sm:px-6 py-2 rounded-full transition text-sm sm:text-base whitespace-nowrap"
           >
             Contact Us
           </a>
