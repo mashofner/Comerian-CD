@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { SubscriptionChatbot } from '@/types';
 import FadeInSection from '../FadeInSection';
+import { PreOrderForm } from './PreOrderForm';
 
 interface ChatbotCardProps {
   chatbot: SubscriptionChatbot;
@@ -8,12 +9,15 @@ interface ChatbotCardProps {
 }
 
 export const ChatbotCard: React.FC<ChatbotCardProps> = ({ chatbot, delay }) => {
+  const [showPreOrderForm, setShowPreOrderForm] = useState(false);
   const showPricing = chatbot.status === 'available' || chatbot.price === 25;
   const isPreOrder = chatbot.status === 'coming-soon' && chatbot.price === 25;
 
   const handleSubscribe = () => {
     if (chatbot.title === "Trash Can Cleaning Customer Support AI Chatbot") {
       window.location.href = 'https://buy.stripe.com/6oE6osfs7bZIgzmaEE';
+    } else if (isPreOrder) {
+      setShowPreOrderForm(true);
     }
   };
 
@@ -89,6 +93,9 @@ export const ChatbotCard: React.FC<ChatbotCardProps> = ({ chatbot, delay }) => {
                       <span className="text-gray-400">/month</span>
                     </div>
                     <div className="text-sm text-blue-400">Pre-order price - locked in for life!</div>
+                    <div className="text-xs text-gray-400 mt-1">
+                      No payment required now - just lock in your $25/month price. You'll only be charged when the product launches.
+                    </div>
                   </div>
                 ) : (
                   <div>
@@ -119,6 +126,12 @@ export const ChatbotCard: React.FC<ChatbotCardProps> = ({ chatbot, delay }) => {
           )}
         </div>
       </div>
+      {showPreOrderForm && (
+        <PreOrderForm
+          onClose={() => setShowPreOrderForm(false)}
+          productName={chatbot.title}
+        />
+      )}
     </FadeInSection>
   );
 };
