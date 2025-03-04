@@ -1,6 +1,7 @@
 import { Header } from './components/Header';
 import { ServicesSection } from './components/Services';
 import { SubscriptionChatbotsSection } from './components/SubscriptionChatbots';
+import { MicroSaasSection } from './components/MicroSaas';
 import { ContactSection } from './components/Contact';
 import { Footer } from './components/Footer';
 import NeuralNetwork from './components/NeuralNetwork';
@@ -15,6 +16,7 @@ function App() {
         <Header />
         <SubscriptionChatbotsSection />
         <ServicesSection />
+        <MicroSaasSection />
         <ContactSection />
         <Footer />
       </div>

@@ -34,3 +34,11 @@ export interface SubscriptionChatbot {
   demoImage?: string;
   demoCompanyLink?: string;
 }
+
+export interface MicroSaasTool {
+  icon: ReactNode;
+  title: string;
+  description: string;
+  status: 'available' | 'development';
+  link?: string;
+}
