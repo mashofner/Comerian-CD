@@ -15,11 +15,18 @@ export const ExpandableServiceCard: React.FC<ExpandableServiceCardProps> = ({
   isExpanded,
   onToggle
 }) => {
+  const handleClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    onToggle();
+  };
+
   return (
     <FadeInSection delay={delay}>
       <div 
         className="bg-gray-950/90 backdrop-blur-sm p-6 sm:p-8 rounded-xl border border-gray-800 shadow-[0_0_15px_rgba(0,0,0,0.5)] hover:shadow-[0_0_25px_rgba(0,0,0,0.7)] transition duration-300 h-full cursor-pointer relative group"
-        onClick={onToggle}
+        onClick={handleClick}
+        role="button"
+        tabIndex={0}
       >
         <div className="flex items-center justify-between">
           {service.icon}

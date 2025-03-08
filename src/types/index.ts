@@ -1,5 +1,3 @@
-import { ReactNode } from 'react';
-
 export interface Service {
   icon: ReactNode;
   title: string;
@@ -24,15 +22,19 @@ export interface Prototype {
 }
 
 export interface SubscriptionChatbot {
-  icon: ReactNode;
   title: string;
+  badge?: string;
   description: string;
-  price: number;
-  status: 'available' | 'coming-soon';
+  price?: number;
+  priceLabel?: string;
+  priceSubtext?: string;
+  originalPrice?: number;
   features?: string[];
+  valueProps?: string[];
+  actionText: string;
+  actionLink?: string;
   demoLink?: string;
-  demoImage?: string;
-  demoCompanyLink?: string;
+  demoText?: string;
 }
 
 export interface MicroSaasTool {

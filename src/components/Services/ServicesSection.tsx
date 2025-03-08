@@ -7,23 +7,19 @@ import FadeInSection from '../FadeInSection';
 import { services } from '@/data/services';
 
 export const ServicesSection: React.FC = () => {
-  const [showLeadGenServices, setShowLeadGenServices] = useState(false);
-  const [showOutreachServices, setShowOutreachServices] = useState(false);
+  const [expandedServices, setExpandedServices] = useState<{ [key: string]: boolean }>({});
 
-  const itemsPerRow = 3;
-  const leadGenIndex = services.findIndex(s => s.title === "Lead Generation");
-  const outreachIndex = services.findIndex(s => s.title === "Automated Outreach");
-  
-  const leadGenRowIndex = Math.floor(leadGenIndex / itemsPerRow);
-  const outreachRowIndex = Math.floor(outreachIndex / itemsPerRow);
-  
-  const leadGenRowEndIndex = (leadGenRowIndex + 1) * itemsPerRow;
-  const outreachRowEndIndex = (outreachRowIndex + 1) * itemsPerRow;
+  const toggleService = (title: string) => {
+    setExpandedServices(prev => ({
+      ...prev,
+      [title]: !prev[title]
+    }));
+  };
 
   return (
     <section id="services" className="container mx-auto px-4 sm:px-6 py-8">
       <FadeInSection>
-        <h2 className="text-2xl sm:text-3xl font-bold text-center text-white mb-4">Agency Services</h2>
+        <h2 className="text-2xl sm:text-3xl font-bold text-center text-white mb-4">Other Agency Services</h2>
         <div className="max-w-4xl mx-auto mb-12 bg-gray-950/90 backdrop-blur-sm p-8 rounded-xl border border-gray-800 shadow-[0_0_15px_rgba(0,0,0,0.5)]">
           <h3 className="text-xl sm:text-2xl font-bold text-white mb-4 bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">
             Custom AI Solutions for Enterprise Needs
@@ -62,32 +58,15 @@ export const ServicesSection: React.FC = () => {
               <ExpandableServiceCard
                 service={service}
                 delay={index * 200}
-                isExpanded={
-                  (service.title === "Lead Generation" && showLeadGenServices) ||
-                  (service.title === "Automated Outreach" && showOutreachServices)
-                }
-                onToggle={() => {
-                  if (service.title === "Lead Generation") {
-                    setShowLeadGenServices(!showLeadGenServices);
-                  } else if (service.title === "Automated Outreach") {
-                    setShowOutreachServices(!showOutreachServices);
-                  }
-                }}
+                isExpanded={expandedServices[service.title] || false}
+                onToggle={() => toggleService(service.title)}
               />
             ) : (
               <ServiceCard service={service} delay={index * 200} />
             )}
             
-            {index === leadGenRowEndIndex - 1 && showLeadGenServices && (
-              <SubServicesDropdown
-                service={services.find(s => s.title === "Lead Generation")}
-              />
-            )}
-
-            {index === outreachRowEndIndex - 1 && showOutreachServices && (
-              <SubServicesDropdown
-                service={services.find(s => s.title === "Automated Outreach")}
-              />
+            {expandedServices[service.title] && service.subServices && (
+              <SubServicesDropdown service={service} />
             )}
           </React.Fragment>
         ))}

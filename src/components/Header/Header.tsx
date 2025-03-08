@@ -1,6 +1,5 @@
 import React from 'react';
 import { Workflow, LogIn } from 'lucide-react';
-import { Navigation } from './Navigation';
 
 export const Header: React.FC = () => {
   const handlePortalLogin = () => {
@@ -10,12 +9,9 @@ export const Header: React.FC = () => {
   return (
     <header className="container mx-auto px-4 sm:px-6 text-white">
       <nav className="flex items-center py-6">
-        <div className="flex-1 flex items-center space-x-2">
+        <div className="flex items-center space-x-2">
           <Workflow className="w-8 h-8 text-blue-400" />
           <span className="text-xl font-bold">Comerian</span>
-        </div>
-        <div className="flex-1 flex justify-center">
-          <Navigation />
         </div>
         <div className="flex-1 flex items-center justify-end space-x-4">
           <button

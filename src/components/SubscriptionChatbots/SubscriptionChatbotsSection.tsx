@@ -5,37 +5,23 @@ import { subscriptionChatbots } from '@/data/subscriptionChatbots';
 
 export const SubscriptionChatbotsSection: React.FC = () => {
   return (
-    <section id="subscription-chatbots" className="py-8 sm:py-12">
+    <section id="subscription-chatbots" className="py-8 sm:py-12 font-sans">
       <div className="container mx-auto px-4 sm:px-6">
         <FadeInSection>
-          <h2 className="text-2xl sm:text-3xl font-bold text-center text-white mb-4">Subscription Chatbots</h2>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center text-white mb-4 font-sans">
+            Stop Losing Customers—Get a Chatbot That Works for You, Free for 3 Months!
+          </h2>
           <div className="max-w-4xl mx-auto mb-12 bg-gray-950/90 backdrop-blur-sm p-8 rounded-xl border border-gray-800 shadow-[0_0_15px_rgba(0,0,0,0.5)]">
-            <h3 className="text-xl sm:text-2xl font-bold text-white mb-4 bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">
-              Industry-Specific AI Chatbots, Ready to Deploy
-            </h3>
-            <p className="text-gray-300 text-lg leading-relaxed">
-              We've revolutionized how businesses access advanced AI technology. Our subscription chatbots are specifically designed for your industry, delivering sophisticated customer support solutions worth $10,000+ at a fraction of the cost.
+            <p className="text-gray-300 text-lg sm:text-xl leading-relaxed font-sans">
+              Tired of losing customers because you can't answer their questions fast enough? Frustrated with expensive support staff or missing after-hours calls?
             </p>
-            <p className="text-gray-300 text-lg leading-relaxed mt-4">
-              For just $50/month, transform your customer service with a professional AI chatbot that understands your industry's unique needs and terminology.
+            <p className="text-gray-300 text-lg sm:text-xl leading-relaxed mt-4 font-sans">
+              Our AI chatbots handle customer questions 24/7, helping you catch more sales and grow your business. Try risk-free for 3 months—and if you don't like it, you don't pay a dime.
             </p>
-            <p className="text-gray-300 text-lg leading-relaxed mt-4">
-              Implementation is seamless - we'll customize your chatbot with your business details and provide a simple code snippet to add to your website. Start delivering exceptional 24/7 customer service today.
-            </p>
-            <div className="mt-6 flex items-center gap-4 text-gray-400">
-              <div className="flex items-center gap-2">
-                <span className="w-1.5 h-1.5 bg-blue-400 rounded-full"></span>
-                <span>Industry-Specific</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="w-1.5 h-1.5 bg-blue-400 rounded-full"></span>
-                <span>Instant Setup</span>
-              </div>
-            </div>
           </div>
         </FadeInSection>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 max-w-7xl mx-auto">
           {subscriptionChatbots.map((chatbot, index) => (
             <ChatbotCard key={index} chatbot={chatbot} delay={index * 200} />
           ))}

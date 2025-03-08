@@ -1,17 +1,17 @@
-import { MessageSquare, Phone, Globe, Mail, Settings, Linkedin, Instagram, Bot, UserRoundSearch } from 'lucide-react';
+import { Phone, Globe, Mail, Settings, Linkedin, Instagram, Bot, UserRoundSearch } from 'lucide-react';
 import XLogo from '@/components/XLogo';
 import { Service } from '@/types';
 
 export const services: Service[] = [
   {
-    icon: <MessageSquare className="w-12 h-12 text-blue-400" />,
-    title: "Custom AI Chatbots",
-    description: "Tired of losing customers to slow response times? Our AI chatbots provide instant 24/7 customer support, reducing wait times and increasing customer satisfaction."
-  },
-  {
     icon: <Phone className="w-12 h-12 text-blue-400" />,
     title: "AI Phone System",
     description: "Missing calls after hours? Our AI phone system handles customer calls 24/7, ensuring you never miss an opportunity and reducing the load on your staff."
+  },
+  {
+    icon: <Globe className="w-12 h-12 text-blue-400" />,
+    title: "Website Design and Development",
+    description: "Want your website to work harder for your business? We build modern, responsive websites that convert visitors into customers."
   },
   {
     icon: <UserRoundSearch className="w-12 h-12 text-blue-400" />,
@@ -35,11 +35,6 @@ export const services: Service[] = [
         description: "Our next innovative lead generation solution is in development. Stay tuned for updates!"
       }
     ]
-  },
-  {
-    icon: <Globe className="w-12 h-12 text-blue-400" />,
-    title: "Website Design and Development",
-    description: "Want your website to work harder for your business? We build modern, responsive websites that convert visitors into customers."
   },
   {
     icon: <Settings className="w-12 h-12 text-blue-400" />,

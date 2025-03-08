@@ -1,45 +1,44 @@
-import { MessageSquare, Bot } from 'lucide-react';
 import { SubscriptionChatbot } from '@/types';
 
 export const subscriptionChatbots: SubscriptionChatbot[] = [
   {
-    icon: <MessageSquare className="w-10 h-10 text-blue-400" />,
-    title: "Trash Can Cleaning Customer Support AI Chatbot",
-    description: "A specialized chatbot designed for trash can cleaning businesses. Handles customer inquiries and support 24/7. Try our live demo to see it in action!",
+    title: "Starter Chatbot",
+    badge: "3 Months Free!",
+    description: "Give your customers automated 24/7 support for less than a pizza night. Your AI chatbot will handle common questions instantly, freeing up your time.",
     price: 50,
-    status: 'available',
+    priceLabel: "/month",
+    priceSubtext: "First 3 months FREE!",
     features: [
-      "24/7 customer support",
-      "FAQ handling",
-      "Pricing information"
+      "Provides automated 24/7 support for your customers",
+      "Handles common questions so you don't have to",
+      "Reduces your customer response time"
     ],
-    demoLink: "https://creator.voiceflow.com/prototype/677e0958687438e9a81283d3",
-    demoImage: "/Screenshot 2025-01-09 153606.png",
-    demoCompanyLink: "https://supercleancans.com/"
-  },
-  {
-    icon: <MessageSquare className="w-10 h-10 text-blue-400" />,
-    title: "Pet Crematorium and Funeral Home Customer Support AI Chatbot",
-    description: "Currently in development - Pre-order now and save $25/month for life! This specialized chatbot for pet crematoriums and memorial services will be available soon.",
-    price: 25,
-    status: 'coming-soon',
-    features: [
-      "Regular price will be $50/month",
-      "Lock in $25/month for life",
-      "24/7 customer support",
-      "Service information",
-      "Pricing details",
-      "Service explanations"
+    valueProps: [
+      "No setup fees",
+      "Cancel anytime",
+      "Try free for 3 months - no risk!"
     ],
+    actionText: "Start Free Trial",
+    actionLink: "https://buy.stripe.com/6oE6osfs7bZIgzmaEE",
     demoLink: "https://creator.voiceflow.com/prototype/67770cf3c2f2c41fa703a1de",
-    demoImage: "/Untitled design-2.png",
-    demoCompanyLink: "http://www.superiorpetcrematoryservices.com/"
+    demoText: "Try Demo"
   },
   {
-    icon: <Bot className="w-10 h-10 text-gray-400" />,
-    title: "More Industries Coming Soon",
-    description: "We're developing chatbots for various industries. Contact us to suggest your industry!",
-    price: 0,
-    status: 'coming-soon'
+    title: "Custom Chatbot",
+    badge: "Best Value",
+    description: "A premium, custom-built chatbot tailored to your specific business needs. Perfect for businesses serious about growth and professional customer service.",
+    features: [
+      "Custom-built for your business",
+      "Product carousel for showcasing items",
+      "Lead qualification & capture system",
+      "Automated scheduling & booking",
+      "Full integration with your systems",
+      "Unlimited customization & updates",
+      "Custom branding & design",
+      "Support & Maintenance",
+      "Regular performance reviews"
+    ],
+    actionText: "Get a Quote",
+    actionLink: "#quote-form"
   }
 ];
