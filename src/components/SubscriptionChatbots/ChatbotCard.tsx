@@ -43,7 +43,7 @@ export const ChatbotCard: React.FC<ChatbotCardProps> = ({ chatbot, delay }) => {
           )}
 
           <div className="mt-auto space-y-6">
-            {showPricing && (
+            {showPricing && chatbot.price && (
               <>
                 <div className="text-center">
                   {chatbot.originalPrice && (
