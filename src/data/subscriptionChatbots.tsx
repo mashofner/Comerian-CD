@@ -4,7 +4,7 @@ export const subscriptionChatbots: SubscriptionChatbot[] = [
   {
     title: "Starter Chatbot",
     badge: "3 Months Free!",
-    description: "Give your customers automated 24/7 support for less than a pizza night. Your AI chatbot will handle common questions instantly, freeing up your time.",
+    description: "Give your customers automated 24/7 support for less than a pizza night. Your AI chatbot will handle common questions instantly, freeing up your time. Within 24 hours of signing up, we'll create your custom chatbot and provide you with a simple code snippet to add it to your website.",
     price: 50,
     priceLabel: "/month",
     priceSubtext: "First 3 months FREE!",
